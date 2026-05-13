@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portifólio Pessoal</title>
 
-    <link rel="icon" href="../../Public/Img/arruda1.png">
+    <link rel="icon" href="../../Public/Img/arruda1.jpg">
     <link rel="stylesheet" href="../../Public/Css/style.css">
-    <script src="../../Public/Js/script.js"></script>
+    <script defer src="../../Public/Js/script.js"></script>
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 </head>
 <body>
@@ -17,61 +18,66 @@
         </div>
 
         <ul class="navbar">
-            <a href="#objetivos">Objetivos</a>
+            <a href="#objetivos">Hardskills</a>
             <a href="#galeria">Galeria</a>
             <a href="#projetos">Projetos</a>
         </ul>
     </header>
 
-    <section class="hero" id="home">
-    <div class="hero-content">
+    <section class="hero" id="home" aria-label="Apresentação">
+
+        <div class="hero-content">
 
         <div class="hero-badge">
             <span class="hero-badge-dot"></span>
             Disponível para projetos
         </div>
 
-        <h1 class="title">
+        <h1 class="hero-title">
             Transformando ideias em<br>
-            <span class="title-highlight">experiências digitais</span>
+            <span class="hero-title-highlight">experiências digitais</span>
         </h1>
 
-        <p class="subtitle">
+        <p class="hero-subtitle">
             Construindo interfaces modernas e sistemas escaláveis
             com foco em performance e design.
         </p>
 
-        <div class="hero-buttons">
-            <a href="#projetos">
-                <button class="btn-primary">Ver projetos</button>
-            </a>
-            <a href="#contato">
-                <button class="btn-secondary">Entre em contato →</button>
-            </a>
-        </div>
+        <nav class="hero-buttons" aria-label="Ações principais">
+            <a href="#projetos" class="btn-primary">Ver projetos</a>
+            <a href="#contato" class="btn-secondary">Entre em contato →</a>
+        </nav>
 
         <div class="hero-divider"></div>
 
         <div class="hero-stack">
-            <span class="stack-label">Stack principal</span>
+            <span class="stack-label">Principais stacks</span>
             <div class="stack-chips">
-                <span class="chip">PHP + Laravel</span>
-                <span class="chip">Java</span>
-                <span class="chip">React Native</span>
-                <span class="chip">SQL</span>
-                
+                <span class="chip" role="listitem">PHP + Laravel</span>
+                <span class="chip" role="listitem">Java</span>
+                <span class="chip" role="listitem">React Native</span>
+                <span class="chip" role="listitem">SQL</span>
             </div>
         </div>
 
     </div>
 
+    <div class="hero-photo-wrapper">
+        <div class="hero-photo-placeholder" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+        <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+    </svg>
+    <span>
+        <img class="hero__photo"src="../../Public/Img/arruda1.jpg" alt="" srcset="" loading="lazy" width="600" height="800">
+    </span>
     
+    </div>   
 
 </section>
 
         <section id="objetivo" class="objetivos section-hidden">
             <div class="container5">
-                <h2>Minhas principais <br><span id="span">competências</span></h2>
+                <h2>Minhas principais <br><span id="span">hardskills</span></h2>
                 <div class="objetivos">
                     <div class="img-item">
 
@@ -121,7 +127,7 @@
                             </div>
 
                             <h3 class="card-title">Front-End</h3>
-                            <p class="text_objetivos">Criação de interfaces web e mobile e responsivas.</p>
+                            <p class="text_objetivos">Criação de interfaces web, mobile e responsivas.</p>
                         </div>
 
                         <div class="img_desc card-hidden">
@@ -138,7 +144,7 @@
                             </div>
 
                             <h3 class="card-title">Banco de dados</h3>
-                            <p class="text_objetivos">Modelagem e gerenciamento de dados relacionais e não relacionais.</p>
+                            <p class="text_objetivos">Modelagem e gerenciamento de banco de dados SQL e NoSQL.</p>
                         </div>
 
                         <div class="img_desc card-hidden">
@@ -176,7 +182,7 @@
         </section>
 
 
-        <section id="equipe">
+        <section id="Galeria">
             <h2>Galeria</h2>
             <div class="slide-container swiper">
                 <div class="slide-content">
@@ -186,7 +192,7 @@
                             <h2>Apresentação TCC</h2>
                             <div class="image-content">
                                 <div class="card-image">
-                                    <img src="../../Public/Img/fotoNoTCC.png" alt="Foto de Edivan" class="card-img">
+                                    <img src="../../Public/Img/fotoNoTCC.jpg" alt="Apresentação do TCC" class="card-img">
                                 </div>
                             </div>
                             
@@ -202,20 +208,30 @@
         </div>
         </section>
       
-        <section id="projetos" class="carousel-container">
+        <section id="projetos" class="projetos-section"  aria-label="Projetos">
 
-            <div class="projeto-header">
-                <h2>Projetos</h2>
-                <p class="projeto-subtitulo">Alguns dos projetos que desenvolvi</p>
+            <div class="projetos-header">
+                <h2 class="projetos-title">Projetos</h2>
+                <p class="projetos-subtitle">Alguns dos projetos que desenvolvi</p>
             </div>
 
-            <!-- Card do projeto -->
-            <div class="projeto-card">
 
-                <!-- Info do projeto -->
+            <!-- =========================
+                CARROSSEL DE PROJETOS
+            ========================== -->
+
+        <div class="projetos-carousel" aria-label="Lista de projetos">
+
+            <!-- TRACK -->
+            <div class="projetos-track" id="projetosTrack">
+
+            <!-- Card do projeto 1 -->
+            <article class="projeto-card">
+
+                <!-- Info (esquerda) -->
                 <div class="projeto-info">
                     <div class="projeto-meta">
-                        <img class="logoC" src="../../Public/Img/BUSCAMED.png" alt="Logo Buscamed">
+                        <img class="projeto-logo" src="../../Public/Img/BUSCAMED.png" alt="Logo Buscamed">
                         <div>
                             <h3 class="projeto-nome">Buscamed</h3>
                             <span class="projeto-tag">Mobile / Web • Saúde</span>
@@ -227,6 +243,7 @@
                         mais próximas de você, facilitando o acesso à saúde pública.
                     </p>
 
+
                     <div class="projeto-stack">
                         <span class="chip">React Native</span>
                         <span class="chip">Node.js</span>
@@ -234,34 +251,204 @@
                     </div>
 
                     <div class="projeto-botoes">
-                        <a href="https://youtu.be/QRviIKZPZK8?si=zRNpd1IjvODqUhyC" target="_blank" rel="noopener">
-                            <button class="btn-pitch">&#9654; Video Pitch</button>
+                        <a class="btn-pitch" href="https://youtu.be/QRviIKZPZK8?si=zRNpd1IjvODqUhyC" target="_blank" rel="noopener noreferrer" aria-label="Ver vídeo pitch do Buscamed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.7 31.7 0 0 0 0 12a31.7 31.7 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.7 31.7 0 0 0 24 12a31.7 31.7 0 0 0-.5-5.8ZM9.6 15.5v-7l6.2 3.5-6.2 3.5Z"/>
+                            </svg> Vídeo Pitch
                         </a>
-                        <a href="#" target="_blank" rel="noopener">
-                            <button class="btn-github">
-                                <i class="devicon-github-original"></i> GitHub
-                            </button>
+
+                        <a class="btn-github" href="#" target="_blank" rel="noopener noreferrer" aria-label="Ver código do Buscamed no GitHub">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58
+                                0-.28-.01-1.02-.01-2-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75
+                                -1.09-.74.08-.73.08-.73 1.2.08 1.84 1.23 1.84 1.23 1.07 1.84 2.81 1.3 3.5 1
+                                .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22
+                                -.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02.005
+                                2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84
+                                1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22
+                                0 1.6-.01 2.9-.01 3.29 0 .32.21.7.82.58C20.57 21.8 24 17.3 24 12
+                                24 5.37 18.63 0 12 0z"/>
+                            </svg>
+                            GitHub
                         </a>
                     </div>
                 </div>
 
-                <!-- Galeria de imagens do projeto -->
-                <div class="projeto-galeria">
-                    <div class="galeria-track" id="galeriaTrack">
-                        <img src="../../Public/Img/novoFundo.png" alt="Buscamed tela 1" class="galeria-img">
-                        <img src="../../Public/Img/carrossel2.png" alt="Buscamed tela 2" class="galeria-img">
-                        <img src="../../Public/Img/carrossel3.png" alt="Buscamed tela 3" class="galeria-img">
-                        <img src="../../Public/Img/carrossel4.png" alt="Buscamed tela 4" class="galeria-img">
+                <!-- Imagens do projeto -->
+                <div class="imagem-carousel" role="region" aria-label="Imagens do projeto Buscamed" tabindex="0">
+                    
+                    <div class="imagem-track-wrapper">
+                        <div class="imagem-track" id="imagemTrack-buscamed">
+                            <img class="imagem-foto" src="../../Public/Img/novoFundo.png" alt="Buscamed — tela 1 de 4">
+                            <img class="imagem-foto" src="../../Public/Img/carrossel2.png" alt="Buscamed — tela 2 de 4">
+                            <img class="imagem-foto" src="../../Public/Img/carrossel3.png" alt="Buscamed — tela 3 de 4">
+                            <img class="imagem-foto" src="../../Public/Img/carrossel4.png" alt="Buscamed — tela 4 de 4">
+                        </div>
                     </div>
 
-                    <button class="galeria-arrow galeria-arrow--prev" id="galeriaPrev">&#8592;</button>
-                    <button class="galeria-arrow galeria-arrow--next" id="galeriaNext">&#8594;</button>
+                    <!-- SETAS -->
+                    <button type="button" class="imagem-arrow imagem-arrow--prev" aria-label="Imagem anterior">&#8592;</button>
+                    <button type="button" class="imagem-arrow imagem-arrow--next" aria-label="Próxima imagem">&#8594;</button>
 
-                    <div class="galeria-dots" id="galeriaDots"></div>
+                    <div class="imagem-dots" id="imagemDots-buscamed" role="tablist" aria-label="Navegação das imagens"></div>
                 </div>
+
+            </article>
+
+            <!-- =====================================================
+                PROJETO 2
+            ====================================================== -->
+
+            <article class="projeto-card">
+
+                    <!-- INFO -->
+                    <div class="projeto-info">
+
+                    <div class="projeto-meta">
+
+                        <img
+                        class="projeto-logo"
+                        src="../../Public/Img/BUSCAMED.png"
+                        alt="Logo Projeto"
+                        >
+
+                        <div>
+
+                        <h3 class="projeto-nome">
+                            Finanças App
+                        </h3>
+
+                        <span class="projeto-tag">
+                            Dashboard • Financeiro
+                        </span>
+
+                        </div>
+
+                    </div>
+
+                    <p class="projeto-desc">
+                        Plataforma para controle financeiro pessoal
+                        com dashboard interativo.
+                    </p>
+
+                    <div class="projeto-stack">
+
+                        <span class="chip">React</span>
+                        <span class="chip">TypeScript</span>
+                        <span class="chip">PostgreSQL</span>
+
+                    </div>
+
+                    <div class="projeto-botoes">
+
+                        <a
+                        class="btn-pitch"
+                        href="#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >
+                        ▶ Demo
+                        </a>
+
+                        <a
+                        class="btn-github"
+                        href="#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >
+                        GitHub
+                        </a>
+
+                    </div>
+
+                    </div>
+
+                    <!-- CARROSSEL INTERNO -->
+                    <div
+                    class="imagem-carousel"
+                    role="region"
+                    aria-label="Imagens do projeto Finanças App"
+                    tabindex="0"
+                    >
+
+                    <div class="imagem-track-wrapper">
+
+                        <div
+                        class="imagem-track"
+                        id="imagemTrack-financas"
+                        >
+
+                        <img
+                            class="imagem-foto"
+                            src="../../Public/Img/arruda1.jpg"
+                            alt="Finanças App tela 1"
+                        >
+
+                        <img
+                            class="imagem-foto"
+                            src="../../Public/Img/arruda1.jpg"
+                            alt="Finanças App tela 2"
+                        >
+
+                        <img
+                            class="imagem-foto"
+                            src="../../Public/Img/arruda1.jpg"
+                            alt="Finanças App tela 3"
+                        >
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        class="imagem-arrow imagem-arrow--prev"
+                        type="button"
+                        aria-label="Imagem anterior"
+                    >
+                        ←
+                    </button>
+
+                    <button
+                        class="imagem-arrow imagem-arrow--next"
+                        type="button"
+                        aria-label="Próxima imagem"
+                    >
+                        →
+                    </button>
+
+                    <div
+                        class="imagem-dots"
+                        id="imagemDots-financas"
+                    ></div>
+
+                    </div>
+
+                </article>
+
+                </div>
+
+                <!-- =========================
+                    SETAS DO CARROSSEL DE PROJETOS
+                ========================== -->
+
+                <button
+                class="projetos-arrow projetos-arrow--prev"
+                type="button"
+                aria-label="Projeto anterior"
+                >
+                ←
+                </button>
+
+                <button
+                class="projetos-arrow projetos-arrow--next"
+                type="button"
+                aria-label="Próximo projeto"
+                >
+                →
+                </button>
 
             </div>
-
+        
         </section>
 
         <footer>
