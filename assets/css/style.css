@@ -446,20 +446,20 @@ section h2::after {
 }
 
 /* =====================
-   OBJETIVOS
+   HARDSKILLS
    ===================== */
 
-#objetivo {
+#hardskills {
     padding: 100px 40px;
     background-color: var(--bg2);
     text-align: center;
 }
 
-#objetivo h2 {
+#hardskills h2 {
     color: #F0F0F5;
 }
 
-#objetivo h2 span {
+#hardskills h2 span {
     color: #C9A84C;
 }
 
@@ -550,7 +550,7 @@ section h2::after {
     color: #F0F0F5;
 }
 
-.text_objetivos {
+.text_hardskills {
     font-size: 0.9rem;
     color: #7A7A8A;
     line-height: 1.6;
@@ -570,22 +570,18 @@ section h2::after {
    GALERIA (SWIPER)
    ===================== */
 
-#equipe {
-    padding: 100px 40px;
-    background-color: var(--bg);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
 .slide-container {
-    max-width: 1120px;
-    width: 100%;
-    padding: 16px 0 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 16px 0 40px;
 }
 
 .slide-content {
+    width: 60%;
+    height: 60%;
     margin: 0 56px;
     overflow: hidden;
     border-radius: 16px;
@@ -737,7 +733,9 @@ section h2::after {
 .projeto-tag {
   color: var(--accent-gold);
   font-size: 0.95rem;
+  margin-bottom: 5px;
 }
+
  
 .projeto-desc {
   color: var(--text-secondary);

@@ -480,7 +480,7 @@ function initImageCarousel(id) {
  
   // Adicione uma linha por projeto novo:
   initImageCarousel("buscamed");
-  initImageCarousel("financas");
+  initImageCarousel("pegasus");
     
 
 });
