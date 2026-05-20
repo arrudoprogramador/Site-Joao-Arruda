@@ -66,7 +66,7 @@
         <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
     </svg>
     <span>
-        <img class="hero__photo"src="assets/img/arruda1.jpg" alt="" srcset="" loading="lazy" width="600" height="800">
+        <img class="hero__photo" src="assets/img/fotoEvento.jpeg" alt="" srcset="" loading="lazy" width="600" height="800">
     </span>
     
     </div>   
@@ -74,9 +74,9 @@
 </section>
 
         <section id="hardskills" class="hardskills section-hidden">
-            <div class="container5">
+            <div class="container-principal">
                 <h2>Minhas principais <br><span id="span">hardskills</span></h2>
-                <div class="hardskills">
+                <div class="hardskills-centralizar">
                     <div class="img-item">
 
                         <div class="img_desc card-hidden">
@@ -181,30 +181,47 @@
 
 
         <section id="galeria">
-            <h2>Galeria</h2>
-            <div class="slide-container swiper">
-                <div class="slide-content">
-                    <div class="card-wrapper swiper-wrapper">
-                        <!-- Card 2 -->
-                        <div class="card swiper-slide">
-                            <h2>Apresentação TCC</h2>
-                            <div class="image-content">
-                                <div class="card-image">
-                                    <img src="assets/img/fotoNoTCC.jpg" alt="Apresentação do TCC" class="card-img">
+            <div class="galeria-inner">
+
+                <h2 class="galeria-title">Galeria</h2>
+
+                <div class="galeria-conteudo">
+                <div class="galeria-wrapper">
+
+                    <button class="galeria-arrow galeria-arrow--prev" type="button" aria-label="Anterior">←</button>
+                    <button class="galeria-arrow galeria-arrow--next" type="button" aria-label="Próximo">→</button>
+
+                    <div class="galeria-carousel">
+                        <div class="galeria-track" id="galeriaTrack">
+                            
+                            <div class="galeria-card">
+                                <span class="galeria-card-label">Time do TCC da Etec</span>
+                                <div class="galeria-card-img-wrapper">
+                                    <img src="assets/img/timeMaze.jpeg" alt="Apresentação do TCC" class="galeria-card-img">
                                 </div>
                             </div>
-                            
-                        </div>
-                        </div>
 
+                            <div class="galeria-card">
+                                <span class="galeria-card-label">Organograma da empresa</span>
+                                <div class="galeria-card-img-wrapper">
+                                    <img src="assets/img/organograma.jpeg" alt="Pitch Buscamed" class="galeria-card-img">
+                                </div>
+                            </div>
+
+
+
+                        </div>
                     </div>
+
+
+                    <div class="galeria-dots" id="galeriaDots"></div>
+
                 </div>
-                <!-- Botões de navegação -->
-                <div class="swiper-button-next next"></div>
-                <div class="swiper-button-prev prev"></div>
+                </div>
+
             </div>
-        </div>
         </section>
+        
       
         <section id="projetos" class="projetos-section"  aria-label="Projetos">
 
@@ -214,11 +231,24 @@
             </div>
 
 
-            <!-- =========================
-                CARROSSEL DE PROJETOS
-            ========================== -->
+    <!-- =========================
+    CARROSSEL DE PROJETOS
+    ========================== -->
 
-        <div class="projetos-carousel" aria-label="Lista de projetos">
+        <!-- =========================
+        SETAS DO CARROSSEL DE PROJETOS
+        ========================== -->
+    <div class="projetos-wrapper">
+        <div class="projetos-conteudo">
+            <button class="projetos-arrow projetos-arrow--prev" type="button" aria-label="Projeto anterior">
+                ←
+            </button>
+
+            <button class="projetos-arrow projetos-arrow--next" type="button" aria-label="Próximo projeto">
+                →
+            </button>
+
+            <div class="projetos-carousel" aria-label="Lista de projetos">
 
             <!-- TRACK -->
             <div class="projetos-track" id="projetosTrack">
@@ -237,8 +267,7 @@
                     </div>
 
                     <p class="projeto-desc">
-                        Aplicativo para indicação das UBS e Farmácias Populares
-                        mais próximas de você, facilitando o acesso à saúde pública.
+                        Sistema completo para indicação das UBS mais próximas com o medicamento desejado, facilitando o acesso à saúde pública.
                     </p>
 
 
@@ -255,7 +284,7 @@
                             </svg> Vídeo Pitch
                         </a>
 
-                        <a class="btn-github" href="#" target="_blank" rel="noopener noreferrer" aria-label="Ver código do Buscamed no GitHub">
+                        <a class="btn-github" href="https://github.com/arrudoprogramador" target="_blank" rel="noopener noreferrer" aria-label="Ver código do Buscamed no GitHub">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                                 <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58
                                 0-.28-.01-1.02-.01-2-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75
@@ -298,148 +327,73 @@
             ====================================================== -->
 
             <article class="projeto-card">
-
-                    
-                    <div class="projeto-info">
-
+                <!-- Info (esquerda) -->
+                <div class="projeto-info">
                     <div class="projeto-meta">
-
-                        <img
-                        class="projeto-logo"
-                        src="assets/img/logoPegasus.png"
-                        alt="Logo Projeto"
-                        >
+                        <img class="projeto-logo" src="assets/img/logoPegasus.png" alt="Logo Pegasus">
 
                         <div>
-
-                        <h3 class="projeto-nome">
-                            Pegasus
-                        </h3>
-
-                        <span class="projeto-tag">Mobile / Web</span><br>
-
-                        
-
+                            <h3 class="projeto-nome">Pegasus</h3>
+                            <span class="projeto-tag">Mobile / Web</span>
                         </div>
-
                     </div>
 
                     <p class="projeto-desc">
-                        Sistema gerenciamento de E-commerce e aplicativo para usuários. Loja fictícia direcionada à venda de roupas esportivas.
+                        Sistema de gerenciamento de E-commerce e aplicativo para usuários. Loja fictícia direcionada à venda de roupas esportivas.
                     </p>
 
                     <div class="projeto-stack">
-
                         <span class="chip">React Native</span>
-                        <span class="chip">Php + Laravel</span>
+                        <span class="chip">PHP + Laravel</span>
                         <span class="chip">MySQL</span>
-
                     </div>
 
                     <div class="projeto-botoes">
 
-                        <!-- <a
-                        class="btn-pitch"
-                        href="#"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >
-                        ▶ Demo
+                        <!-- <a class="btn-pitch" href="#" target="_blank" rel="noopener noreferrer">
+                            ▶ Demo
                         </a> -->
 
-                        <a
-                        class="btn-github"
-                        href="#"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >
-                        GitHub
+                        <a class="btn-github" href="#" target="_blank" rel="noopener noreferrer">
+                            GitHub
                         </a>
 
                     </div>
+                </div>
 
-                    </div>
-
-                    
-                    <div
-                    class="imagem-carousel"
-                    role="region"
-                    aria-label=""
-                    tabindex="0"
-                    >
+                <!-- Imagens do projeto -->
+                <div class="imagem-carousel" role="region" aria-label="Imagens do projeto Pegasus" tabindex="0">
 
                     <div class="imagem-track-wrapper">
+                        <div class="imagem-track" id="imagemTrack-pegasus">
 
-                        <div
-                        class="imagem-track"
-                        id="imagemTrack-pegasus"
-                        >
+                            <img class="imagem-foto" src="assets/img/fotoPegasus1.png" alt="Pegasus — tela 1 de 2">
 
-                        <img
-                            class="imagem-foto"
-                            src="assets/img/fotoPegasus1.png"
-                            alt="Finanças App tela 1"
-                        >
-
-                        <img
-                            class="imagem-foto"
-                            src="assets/img//fotoPegasus2.png"
-                            alt="Finanças App tela 2"
-                        >
-
-                        
+                            <img class="imagem-foto" src="assets/img/fotoPegasus2.png" alt="Pegasus — tela 2 de 2">
 
                         </div>
-
                     </div>
 
-                    <button
-                        class="imagem-arrow imagem-arrow--prev"
-                        type="button"
-                        aria-label="Imagem anterior"
-                    >
-                        ←
+                    <!-- SETAS -->
+                    <button type="button" class="imagem-arrow imagem-arrow--prev" aria-label="Imagem anterior">
+                        &#8592;
                     </button>
 
-                    <button
-                        class="imagem-arrow imagem-arrow--next"
-                        type="button"
-                        aria-label="Próxima imagem"
-                    >
-                        →
+                    <button type="button" class="imagem-arrow imagem-arrow--next" aria-label="Próxima imagem">
+                        &#8594;
                     </button>
 
-                    <div
-                        class="imagem-dots"
-                        id="imagemDots-pegasus"
-                    ></div>
-
-                    </div>
-
-                </article> 
+                    <div class="imagem-dots" id="imagemDots-pegasus" role="tablist" aria-label="Navegação das imagens"></div>
 
                 </div>
 
-                <!-- =========================
-                    SETAS DO CARROSSEL DE PROJETOS
-                ========================== -->
+            </article> 
 
-                <button
-                class="projetos-arrow projetos-arrow--prev"
-                type="button"
-                aria-label="Projeto anterior"
-                >
-                ←
-                </button>
+            </div>
 
-                <button
-                class="projetos-arrow projetos-arrow--next"
-                type="button"
-                aria-label="Próximo projeto"
-                >
-                →
-                </button>
-
+                
+            </div>
+            </div>
             </div>
         
         </section>
@@ -457,6 +411,4 @@
 
 </body>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11.1.15/swiper-bundle.min.js"></script>
-        
-   
 </html>

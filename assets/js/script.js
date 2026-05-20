@@ -48,439 +48,240 @@ document.addEventListener("DOMContentLoaded", function () {
     
 
 
+
+
+
+
+
+
+
+
+function initGaleriaCarousel() {
+  const track   = document.getElementById("galeriaTrack");
+  const dotsBox = document.getElementById("galeriaDots");
+  if (!track || !dotsBox) return;
+
+  const wrapper = track.closest(".galeria-wrapper");
+  const slides  = Array.from(track.querySelectorAll(".galeria-card"));
+  const total   = slides.length;
+  if (total === 0) return;
+
+  const prevBtn = wrapper.querySelector(".galeria-arrow--prev");
+  const nextBtn = wrapper.querySelector(".galeria-arrow--next");
+
+  let current = 0;
+  let timer   = null;
+
+  /* dots */
+  slides.forEach((_, i) => {
+    const d = Object.assign(document.createElement("button"), {
+      type: "button",
+      className: "galeria-dot" + (i === 0 ? " active" : ""),
+    });
+    d.setAttribute("aria-label", `Ir para foto ${i + 1}`);
+    d.addEventListener("click", () => { goTo(i); restart(); });
+    dotsBox.appendChild(d);
+  });
+
+  const dots = Array.from(dotsBox.querySelectorAll(".galeria-dot"));
+
+  function goTo(i) {
+    current = ((i % total) + total) % total;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dots.forEach((d, j) => d.classList.toggle("active", j === current));
+  }
+
+  const start   = () => { stop(); timer = setInterval(() => goTo(current + 1), 5000); };
+  const stop    = () => { clearInterval(timer); timer = null; };
+  const restart = () => { stop(); start(); };
+
+  prevBtn?.addEventListener("click", () => { goTo(current - 1); restart(); });
+  nextBtn?.addEventListener("click", () => { goTo(current + 1); restart(); });
+
+  let tx = 0;
+  wrapper.addEventListener("touchstart", e => { tx = e.touches[0].clientX; }, { passive: true });
+  wrapper.addEventListener("touchend",   e => {
+    const diff = tx - e.changedTouches[0].clientX;
+    if (Math.abs(diff) < 50) return;
+    goTo(diff > 0 ? current + 1 : current - 1);
+    restart();
+  }, { passive: true });
+
+  wrapper.addEventListener("mouseenter", stop);
+  wrapper.addEventListener("mouseleave", start);
+  document.addEventListener("visibilitychange", () => document.hidden ? stop() : start());
+
+  goTo(0);
+  start();
+}
+
+initGaleriaCarousel();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // =====================
 
    /* =========================================================
-   CARROSSEL DE IMAGENS DOS PROJETOS
+   CARROSSEL DE IMAGENS (interno por projeto)
 ========================================================= */
-
 function initImageCarousel(id) {
-
-  const track = document.getElementById(`imagemTrack-${id}`);
+  const track         = document.getElementById(`imagemTrack-${id}`);
   const dotsContainer = document.getElementById(`imagemDots-${id}`);
-
   if (!track || !dotsContainer) return;
 
-  const wrapper = track.closest('.imagem-carousel');
-
+  const wrapper = track.closest(".imagem-carousel");
   if (!wrapper) return;
 
-  const prevBtn = wrapper.querySelector('.imagem-arrow--prev');
-  const nextBtn = wrapper.querySelector('.imagem-arrow--next');
-
+  const prevBtn = wrapper.querySelector(".imagem-arrow--prev");
+  const nextBtn = wrapper.querySelector(".imagem-arrow--next");
   if (!prevBtn || !nextBtn) return;
 
-  const slides = Array.from(track.querySelectorAll('.imagem-foto'));
+  const slides = Array.from(track.querySelectorAll(".imagem-foto"));
+  const total  = slides.length;
+  if (total === 0) return;
 
-  const total = slides.length;
+  let current      = 0;
+  let autoplayTimer = null;
 
-  if (total <= 0) return;
-
-  let current = 0;
-  let autoplay;
-
-  /* =========================================================
-     CRIAR DOTS
-  ========================================================= */
-
-  slides.forEach((_, index) => {
-
-    const dot = document.createElement('button');
-
-    dot.className = `imagem-dot ${index === 0 ? 'active' : ''}`;
-
-    dot.type = 'button';
-
-    dot.setAttribute(
-      'aria-label',
-      `Ir para imagem ${index + 1}`
-    );
-
-    dot.addEventListener('click', () => {
-      goTo(index);
-      restartAutoplay();
+  /* ── Dots ── */
+  slides.forEach((_, i) => {
+    const dot = Object.assign(document.createElement("button"), {
+      type: "button",
+      className: "imagem-dot" + (i === 0 ? " active" : ""),
     });
-
+    dot.setAttribute("aria-label", `Ir para imagem ${i + 1}`);
+    dot.addEventListener("click", () => { goTo(i); restartAutoplay(); });
     dotsContainer.appendChild(dot);
-
   });
 
-  const dots = Array.from(
-    dotsContainer.querySelectorAll('.imagem-dot')
-  );
+  const dots = Array.from(dotsContainer.querySelectorAll(".imagem-dot"));
 
-  /* =========================================================
-     NAVEGAR
-  ========================================================= */
-
+  /* ── Core ── */
   function goTo(index) {
-
     current = ((index % total) + total) % total;
-
-    track.style.transform =
-      `translateX(-${current * 100}%)`;
-
-    dots.forEach((dot, i) => {
-
-      dot.classList.toggle('active', i === current);
-
-    });
-
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle("active", i === current));
   }
 
-  function next() {
-    goTo(current + 1);
-  }
+  /* ── Autoplay ── */
+  const startAutoplay   = () => { stopAutoplay(); autoplayTimer = setInterval(() => goTo(current + 1), 4500); };
+  const stopAutoplay    = () => { clearInterval(autoplayTimer); autoplayTimer = null; };
+  const restartAutoplay = () => { stopAutoplay(); startAutoplay(); };
 
-  function prev() {
-    goTo(current - 1);
-  }
+  /* ── Botões ── */
+  nextBtn.addEventListener("click", () => { goTo(current + 1); restartAutoplay(); });
+  prevBtn.addEventListener("click", () => { goTo(current - 1); restartAutoplay(); });
 
-  /* =========================================================
-     BOTÕES
-  ========================================================= */
-
-  nextBtn.addEventListener('click', () => {
-    next();
+  /* ── Swipe ── */
+  let touchStartX = 0;
+  wrapper.addEventListener("touchstart", e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  wrapper.addEventListener("touchend",   e => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) < 50) return;
+    goTo(diff > 0 ? current + 1 : current - 1);
     restartAutoplay();
-  });
-
-  prevBtn.addEventListener('click', () => {
-    prev();
-    restartAutoplay();
-  });
-
-  /* =========================================================
-     TOUCH / SWIPE
-  ========================================================= */
-
-  let startX = 0;
-  let endX = 0;
-
-  wrapper.addEventListener('touchstart', e => {
-
-    e.stopPropagation();
-
+    e.stopPropagation(); // evita acionar o carrossel pai
   }, { passive: true });
 
-  wrapper.addEventListener('touchend', e => {
-
-    endX = e.changedTouches[0].clientX;
-
-    const distance = startX - endX;
-
-    if (Math.abs(distance) < 50) return;
-
-    if (distance > 0) {
-      next();
-    } else {
-      prev();
-    }
-
-    restartAutoplay();
-
-  }, { passive: true });
-
-  /* =========================================================
-     TECLADO
-  ========================================================= */
-
-  wrapper.addEventListener('keydown', e => {
-
-    if (e.key === 'ArrowRight') {
-
-      next();
-      restartAutoplay();
-
-    }
-
-    if (e.key === 'ArrowLeft') {
-
-      prev();
-      restartAutoplay();
-
-    }
-
+  /* ── Teclado ── */
+  wrapper.setAttribute("tabindex", "0");
+  wrapper.addEventListener("keydown", e => {
+    if (e.key === "ArrowRight") { goTo(current + 1); restartAutoplay(); e.preventDefault(); }
+    if (e.key === "ArrowLeft")  { goTo(current - 1); restartAutoplay(); e.preventDefault(); }
   });
 
-  /* =========================================================
-     AUTOPLAY
-  ========================================================= */
-
-  function startAutoplay() {
-
-    stopAutoplay();
-
-    autoplay = setInterval(() => {
-
-      next();
-
-    }, 4500);
-
-  }
-
-  function stopAutoplay() {
-
-    clearInterval(autoplay);
-
-  }
-
-  function restartAutoplay() {
-
-    stopAutoplay();
-    startAutoplay();
-
-  }
-
-  wrapper.addEventListener('mouseenter', stopAutoplay);
-  wrapper.addEventListener('mouseleave', startAutoplay);
-
-  wrapper.addEventListener('focusin', stopAutoplay);
-  wrapper.addEventListener('focusout', startAutoplay);
-
-  /* =========================================================
-     VISIBILITY API
-     pausa autoplay quando aba não está visível
-  ========================================================= */
-
-  document.addEventListener('visibilitychange', () => {
-
-    if (document.hidden) {
-
-      stopAutoplay();
-
-    } else {
-
-      startAutoplay();
-
-    }
-
-  });
-
-  /* =========================================================
-     INIT
-  ========================================================= */
+  /* ── Pausar ── */
+  wrapper.addEventListener("mouseenter", stopAutoplay);
+  wrapper.addEventListener("mouseleave", startAutoplay);
+  wrapper.addEventListener("focusin",    stopAutoplay);
+  wrapper.addEventListener("focusout",   startAutoplay);
+  document.addEventListener("visibilitychange", () => document.hidden ? stopAutoplay() : startAutoplay());
 
   goTo(0);
   startAutoplay();
-
 }
 
 /* =========================================================
    CARROSSEL PRINCIPAL DE PROJETOS
 ========================================================= */
+function initProjectsCarousel() {
+  const track = document.getElementById("projetosTrack");
+  if (!track) return;
 
-  function initImageCarousel(id) {
- 
-    const track          = document.getElementById(`imagemTrack-${id}`);
-    const dotsContainer  = document.getElementById(`imagemDots-${id}`);
- 
-    // Aborta silenciosamente se o projeto não existir na página
-    if (!track || !dotsContainer) return;
- 
-    const wrapper = track.closest(".imagem-carousel");
-    if (!wrapper) return;
- 
-    const prevBtn = wrapper.querySelector(".imagem-arrow--prev");
-    const nextBtn = wrapper.querySelector(".imagem-arrow--next");
-    if (!prevBtn || !nextBtn) return;
- 
-    const slides = Array.from(track.querySelectorAll(".imagem-foto"));
-    const total  = slides.length;
-    if (total === 0) return;
- 
-    let current = 0;
-    let autoplayTimer = null;
- 
-    /* ── Dots ───────────────────────────────────────── */
- 
-    slides.forEach((_, i) => {
-      const dot = document.createElement("button");
-      dot.type      = "button";
-      dot.className = "imagem-dot" + (i === 0 ? " active" : "");
-      dot.setAttribute("aria-label", `Ir para imagem ${i + 1}`);
-      dot.addEventListener("click", () => {
-        goTo(i);
-        restartAutoplay();
-      });
-      dotsContainer.appendChild(dot);
-    });
- 
-    const dots = Array.from(dotsContainer.querySelectorAll(".imagem-dot"));
- 
-    /* ── Navegar ────────────────────────────────────── */
- 
-    function goTo(index) {
-      current = ((index % total) + total) % total;
-      track.style.transform = `translateX(-${current * 100}%)`;
-      dots.forEach((dot, i) => dot.classList.toggle("active", i === current));
-    }
- 
-    /* ── Autoplay ───────────────────────────────────── */
- 
-    function startAutoplay() {
-      stopAutoplay();
-      autoplayTimer = setInterval(() => goTo(current + 1), 4500);
-    }
- 
-    function stopAutoplay() {
-      clearInterval(autoplayTimer);
-      autoplayTimer = null;
-    }
- 
-    function restartAutoplay() {
-      stopAutoplay();
-      startAutoplay();
-    }
- 
-    /* ── Botões ─────────────────────────────────────── */
- 
-    nextBtn.addEventListener("click", () => { goTo(current + 1); restartAutoplay(); });
-    prevBtn.addEventListener("click", () => { goTo(current - 1); restartAutoplay(); });
- 
-    /* ── Swipe (touch) ──────────────────────────────── */
- 
-    // BUG corrigido: touchstart não capturava startX (tinha e.stopPropagation no lugar)
-    let touchStartX = 0;
- 
-    wrapper.addEventListener("touchstart", e => {
-      touchStartX = e.touches[0].clientX;   // ← linha que faltava
-    }, { passive: true });
- 
-    wrapper.addEventListener("touchend", e => {
-      const diff = touchStartX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) < 50) return;      // movimento muito curto → ignora
-      goTo(diff > 0 ? current + 1 : current - 1);
-      restartAutoplay();
-      e.stopPropagation();                  // evita que o carrossel pai também navegue
-    }, { passive: true });
- 
-    /* ── Teclado ────────────────────────────────────── */
- 
-    wrapper.setAttribute("tabindex", "0");
- 
-    wrapper.addEventListener("keydown", e => {
-      if (e.key === "ArrowRight") { goTo(current + 1); restartAutoplay(); e.preventDefault(); }
-      if (e.key === "ArrowLeft")  { goTo(current - 1); restartAutoplay(); e.preventDefault(); }
-    });
- 
-    /* ── Pausar quando sem foco/visibilidade ────────── */
- 
-    wrapper.addEventListener("mouseenter", stopAutoplay);
-    wrapper.addEventListener("mouseleave", startAutoplay);
-    wrapper.addEventListener("focusin",    stopAutoplay);
-    wrapper.addEventListener("focusout",   startAutoplay);
- 
-    /* ── Init ───────────────────────────────────────── */
- 
-    goTo(0);
-    startAutoplay();
-  }
- 
- 
+// era: track.closest(".projetos-carousel")
+const wrapper = track.closest(".projetos-track")?.parentElement?.closest(".projetos-wrapper")
+             ?? track.closest(".projetos-carousel");  if (!wrapper) return;
 
- 
-  function initProjectsCarousel() {
- 
-    const track   = document.getElementById("projetosTrack");
-    if (!track) return;
- 
-    const wrapper = track.closest(".projetos-carousel");
-    if (!wrapper) return;
- 
-    const cards = Array.from(track.querySelectorAll(".projeto-card"));
-    const total = cards.length;
-    if (total === 0) return;
- 
-    
-    wrapper.style.position = "relative";
- 
-    const prevBtn = wrapper.querySelector(".projetos-arrow--prev");
-    const nextBtn = wrapper.querySelector(".projetos-arrow--next");
- 
-    /* ── Dots de projetos (opcionais, criados se existir container) ── */
-    const dotsContainer = wrapper.querySelector(".projetos-dots");
-    let projectDots = [];
- 
-    if (dotsContainer) {
-      cards.forEach((_, i) => {
-        const dot = document.createElement("button");
-        dot.type      = "button";
-        dot.className = "projeto-nav-dot" + (i === 0 ? " active" : "");
-        dot.setAttribute("aria-label", `Ir para projeto ${i + 1}`);
-        dot.addEventListener("click", () => goTo(i));
-        dotsContainer.appendChild(dot);
-      });
-      projectDots = Array.from(dotsContainer.querySelectorAll(".projeto-nav-dot"));
+  const cards = Array.from(track.querySelectorAll(".projeto-card"));
+  const total = cards.length;
+  if (total === 0) return;
+
+  const prevBtn = wrapper.querySelector(".projetos-arrow--prev");
+  const nextBtn = wrapper.querySelector(".projetos-arrow--next");
+
+  let current = 0;
+
+  function goTo(index) {
+    current = ((index % total) + total) % total;
+    track.style.transform = `translateX(-${current * 100}%)`;
+
+    // Reseta o carrossel interno do card ativo para a primeira imagem
+    const activeCard  = cards[current];
+    const activeTrack = activeCard.querySelector(".imagem-track");
+    if (activeTrack) {
+      activeTrack.style.transform = "translateX(0)";
+      activeCard.querySelectorAll(".imagem-dot")
+        .forEach((d, i) => d.classList.toggle("active", i === 0));
     }
- 
-    let current = 0;
- 
-    function goTo(index) {
-      current = ((index % total) + total) % total;
-      track.style.transform = `translateX(-${current * 100}%)`;
- 
-      // Atualiza setas (desabilita nos extremos se não for loop)
-      if (prevBtn) prevBtn.disabled = false;
-      if (nextBtn) nextBtn.disabled = false;
- 
-      // Dots de projetos
-      projectDots.forEach((d, i) => d.classList.toggle("active", i === current));
- 
-      // Reinicia autoplay dos carrosséis internos ao trocar de projeto
-      // (evita que um carrossel parado em segundo plano avance)
-      const activeCard  = cards[current];
-      const activeTrack = activeCard.querySelector(".imagem-track");
-      if (activeTrack) {
-        activeTrack.style.transform = "translateX(0)";
-        const activeDots = activeCard.querySelectorAll(".imagem-dot");
-        activeDots.forEach((d, i) => d.classList.toggle("active", i === 0));
-      }
-    }
- 
-    /* ── Botões ─────────────────────────────────────── */
- 
-    if (nextBtn) nextBtn.addEventListener("click", () => goTo(current + 1));
-    if (prevBtn) prevBtn.addEventListener("click", () => goTo(current - 1));
- 
-    /* ── Swipe ──────────────────────────────────────── */
- 
-    let touchStartX = 0;
- 
-    wrapper.addEventListener("touchstart", e => {
-      touchStartX = e.touches[0].clientX;
-    }, { passive: true });
- 
-    wrapper.addEventListener("touchend", e => {
-      const diff = touchStartX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) < 60) return;
-      goTo(diff > 0 ? current + 1 : current - 1);
-    }, { passive: true });
- 
-    /* ── Teclado ────────────────────────────────────── */
- 
-    wrapper.setAttribute("tabindex", "0");
- 
-    wrapper.addEventListener("keydown", e => {
-      // Só navega no carrossel principal se o foco não estiver num carrossel interno
-      if (e.target.closest(".imagem-carousel")) return;
-      if (e.key === "ArrowRight") { goTo(current + 1); e.preventDefault(); }
-      if (e.key === "ArrowLeft")  { goTo(current - 1); e.preventDefault(); }
-    });
- 
-    /* ── Init ───────────────────────────────────────── */
- 
-    goTo(0);
   }
- 
- 
-  
- 
-  initProjectsCarousel();
- 
-  // Adicione uma linha por projeto novo:
-  initImageCarousel("buscamed");
-  initImageCarousel("pegasus");
-    
+
+  /* ── Botões ── */
+  nextBtn?.addEventListener("click", () => goTo(current + 1));
+  prevBtn?.addEventListener("click", () => goTo(current - 1));
+
+  /* ── Swipe ── */
+  let touchStartX = 0;
+  wrapper.addEventListener("touchstart", e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  wrapper.addEventListener("touchend",   e => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) < 60) return;
+    goTo(diff > 0 ? current + 1 : current - 1);
+  }, { passive: true });
+
+  /* ── Teclado ── */
+  wrapper.setAttribute("tabindex", "0");
+  wrapper.addEventListener("keydown", e => {
+    if (e.target.closest(".imagem-carousel")) return; // ignora se foco estiver no carrossel interno
+    if (e.key === "ArrowRight") { goTo(current + 1); e.preventDefault(); }
+    if (e.key === "ArrowLeft")  { goTo(current - 1); e.preventDefault(); }
+  });
+
+  goTo(0);
+}
+
+/* ── Init ── */
+initProjectsCarousel();
+initImageCarousel("buscamed");
+initImageCarousel("pegasus");
 
 });
