@@ -827,7 +827,7 @@ section h2::after {
    PROJETOS
    ===================== */
 .projetos-section {
-  width: min(1400px, 100%);
+  width: min(100%);
   margin-inline: auto;
   padding: 96px 72px;
   background-color: var(--bg2);
