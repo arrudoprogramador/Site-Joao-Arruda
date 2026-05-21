@@ -738,6 +738,7 @@ section h2::after {
 
     .sobre-btn-cv {
         width: 100%;
+        align-items: center;
         justify-content: center;
     }
 }
