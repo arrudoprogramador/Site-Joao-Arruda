@@ -13,13 +13,22 @@
 </head>
 <body>
     <header>
+        <span class="nav_title"><h6>J. Arruda</h6></span>
 
-        <ul class="navbar">
-            <a href="#home">Início</a>
-            <a href="#hardskills">Hardskills</a>
-            <a href="#galeria">Galeria</a>
-            <a href="#projetos">Projetos</a>
+        <ul class="navbar" id="navbar">
+            <a href="#home" class="nav-link">Início</a>
+            <a href="#sobre" class="nav-link">Sobre</a>
+            <a href="#hardskills" class="nav-link">Hardskills</a>
+            <a href="#galeria" class="nav-link">Galeria</a>
+            <a href="#projetos" class="nav-link">Projetos</a>
         </ul>
+
+        <button class="nav-hamburger" id="navHamburger" aria-label="Abrir menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
     </header>
 
     <section class="hero" id="home" aria-label="Apresentação">
@@ -72,6 +81,71 @@
     </div>   
 
 </section>
+
+<section id="sobre">
+  <div class="sobre-content">
+
+    <h2 class="sobre-title">
+      Resumo de<br><span>quem sou eu</span>
+    </h2>
+
+    <div class="sobre-inner">
+
+      <!-- ESQUERDA: foto -->
+      <div class="sobre-foto-wrapper">
+        <img class="sobre-foto" src="assets/img/arruda1.jpg" alt="João Pedro Arruda">
+      </div>
+
+      <!-- DIREITA: informações -->
+      <div class="sobre-direita">
+
+        <p class="sobre-desc">
+            Eu sou o <span>João Pedro Arruda</span>, tenho 18 anos e sou apaixonado por tecnologia e desenvolvimento de software. Possuo formação técnica pela ETEC e desenvolvo projetos full-stack com foco em performance, organização e experiência do usuário. 
+        </p>
+
+        <div class="sobre-objetivo">
+          <span class="sobre-objetivo-label">Objetivo profissional</span>
+          <p class="sobre-objetivo-text">
+            Busco uma oportunidade de estágio onde possa contribuir com projetos reais, aprofundar minha experiência em desenvolvimento web e mobile, além de crescer junto a uma equipe.
+          </p>
+        </div>
+
+        <div class="sobre-info-grid">
+          <div class="sobre-info-item">
+            <span class="sobre-info-item-label">Instituição atual</span>
+            <span class="sobre-info-item-value">Fatec Zona Leste</span>
+          </div>
+          <div class="sobre-info-item">
+            <span class="sobre-info-item-label">Curso</span>
+            <span class="sobre-info-item-value">ADS</span>
+          </div>
+          <div class="sobre-info-item">
+            <span class="sobre-info-item-label">Localização</span>
+            <span class="sobre-info-item-value">São Paulo, SP</span>
+          </div>
+          <div class="sobre-info-item">
+            <span class="sobre-info-item-label">Disponibilidade</span>
+            <span class="sobre-info-item-value">Imediata</span>
+          </div>
+        </div>
+
+        <a href="assets/curriculo.pdf" download class="sobre-btn-cv">
+          ↓ Baixar currículo
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
 
         <section id="hardskills" class="hardskills section-hidden">
             <div class="container-principal">
@@ -195,20 +269,27 @@
                         <div class="galeria-track" id="galeriaTrack">
                             
                             <div class="galeria-card">
-                                <span class="galeria-card-label">Time do TCC da Etec</span>
+                                <span class="galeria-card-label">Grupo de TCC da Etec - 2025</span>
                                 <div class="galeria-card-img-wrapper">
                                     <img src="assets/img/timeMaze.jpeg" alt="Apresentação do TCC" class="galeria-card-img">
                                 </div>
                             </div>
 
                             <div class="galeria-card">
-                                <span class="galeria-card-label">Organograma da empresa</span>
+                                <span class="galeria-card-label">Apresentação TCC - 2025</span>
                                 <div class="galeria-card-img-wrapper">
                                     <img src="assets/img/organograma.jpeg" alt="Pitch Buscamed" class="galeria-card-img">
                                 </div>
                             </div>
 
+                            <div class="galeria-card">
+                                <span class="galeria-card-label">Aprovação na Fatec ZL - 2026</span>
+                                <div class="galeria-card-img-wrapper">
+                                    <img src="assets/img/aprovaçãoFATEC.jpeg" alt="Pitch Buscamed" class="galeria-card-img">
+                                </div>
+                            </div>
 
+                            
 
                         </div>
                     </div>
@@ -273,7 +354,7 @@
 
                     <div class="projeto-stack">
                         <span class="chip">React Native</span>
-                        <span class="chip">Node.js</span>
+                        <span class="chip">Laravel</span>
                         <span class="chip">MySQL</span>
                     </div>
 
