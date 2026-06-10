@@ -4,18 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfólio — João Arruda</title>
-  <link rel="stylesheet" href="src/styles/reset.css">
-  <link rel="stylesheet" href="src/styles/base.css">
-  <link rel="stylesheet" href="src/styles/components/header.css">
-  <link rel="stylesheet" href="src/styles/components/footer.css">
-  <link rel="stylesheet" href="src/styles/sections/hero.css">
-  <link rel="stylesheet" href="src/styles/sections/sobre.css">
-  <link rel="stylesheet" href="src/styles/sections/hardskills.css">
-  <link rel="stylesheet" href="src/styles/sections/galeria.css">
-  <link rel="stylesheet" href="src/styles/sections/projetos.css">
-
-  <script type="module" src="src/js/main.js"></script>
-
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
   <meta property="og:title"       content="João Arruda - Portfólio">
@@ -25,9 +13,12 @@
   <meta property="og:type"        content="website">
   <meta property="og:site_name"   content="João Arruda">
   <meta name="twitter:card"       content="summary_large_image">
+  <script type="module" crossorigin src="/assets/index-neM0EPlx.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DqG9KfWW.css">
 </head>
 
 <body>
+
   <header>
     <span class="nav_title"><h6>J. Arruda</h6></span>
 
@@ -35,7 +26,7 @@
       <ul class="navbar" id="navbar">
         <li><a href="#home"       class="nav-link">Início</a></li>
         <li><a href="#sobre"      class="nav-link">Sobre</a></li>
-        <li><a href="#hardskills" class="nav-link">Skills</a></li>
+        <li><a href="#hardskills" class="nav-link">Hard Skills</a></li>
         <li><a href="#galeria"    class="nav-link">Galeria</a></li>
         <li><a href="#projetos"   class="nav-link">Projetos</a></li>
       </ul>
@@ -54,6 +45,10 @@
     </button>
   </header>
 
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
   <section class="hero" id="home" aria-label="Apresentação">
 
     <div class="hero-content">
@@ -74,13 +69,13 @@
       </p>
 
       <nav class="hero-buttons" aria-label="Ações principais">
-        <a href="#projetos" class="btn-primary">Ver alguns projetos</a>
+        <a href="#projetos" class="btn-primary">Ver projetos</a>
         <a
           href="https://www.linkedin.com/in/joão-pedro-arruda-43b49a2b5"
           target="_blank"
           rel="noopener noreferrer"
           class="btn-secondary"
-        >Contatar no LinkedIn</a>
+        >Entre em contato →</a>
       </nav>
 
       <div class="hero-divider"></div>
@@ -88,7 +83,7 @@
       <div class="hero-stack">
         <span class="stack-label">Principais stacks</span>
         <ul class="stack-chips" role="list">
-          <li class="chip" role="listitem">Laravel</li>
+          <li class="chip" role="listitem">PHP + Laravel</li>
           <li class="chip" role="listitem">Java</li>
           <li class="chip" role="listitem">React Native</li>
           <li class="chip" role="listitem">SQL</li>
@@ -105,8 +100,8 @@
         </svg>
         <img
           class="hero__photo"
-          src="assets/img/hero/fotoEvento.jpeg"
-          alt="João Arruda"
+          src="dist/assets/fotoEvento-DqrQxhuN.jpeg"
+          alt="João Arruda em evento"
           loading="lazy"
           width="600"
           height="800"
@@ -116,8 +111,11 @@
 
   </section>
   <!-- /hero -->
-  <!-- /hero -->
 
+
+  <!-- ═══════════════════════════════════════════
+       SOBRE
+  ═══════════════════════════════════════════ -->
   <section id="sobre" aria-label="Sobre mim">
     <div class="sobre-content">
 
@@ -130,7 +128,7 @@
         <div class="sobre-foto-wrapper">
           <img
             class="sobre-foto"
-            src="../public/assets/img/hero/arruda2.jpeg"
+            src="/assets/arruda2-B0u370Q0.jpeg"
             alt="João Pedro Arruda"
             loading="lazy"
           >
@@ -140,14 +138,9 @@
 
           <p class="sobre-desc">
             Eu sou o <span>João Pedro Arruda</span>, tenho 18 anos e sou apaixonado
-            por tecnologia e desenvolvimento de software. Sou formado técnico em 
-            Desenvolvimento de Sistemas pela ETEC e
-            atualmente curso ADS na Fatec.
-          </p>
-          <p class="sobre-desc">
-            Sou proativo, comunicativo e movido por desafios. Tenho grande
-            interesse em Engenharia de Software, arquitetura de sistemas e boas
-            práticas de desenvolvimento.
+            por tecnologia e desenvolvimento de software. Possuo formação técnica
+            pela ETEC e desenvolvo projetos full-stack com foco em performance,
+            organização e experiência do usuário.
           </p>
 
           <div class="sobre-info-grid">
@@ -180,10 +173,13 @@
   <!-- /sobre -->
 
 
+  <!-- ═══════════════════════════════════════════
+       HARD SKILLS
+  ═══════════════════════════════════════════ -->
   <section id="hardskills" class="hardskills section-hidden" aria-label="Hard Skills">
     <div class="container-principal">
 
-      <h2>Minhas principais <br><span id="span">Hard skills</span></h2>
+      <h2>Minhas principais <br><span id="span">Hard Skills</span></h2>
 
       <div class="hardskills-centralizar">
         <div class="img-item">
@@ -192,19 +188,13 @@
           <div class="img_desc card-hidden">
             <div class="card-icons">
               <div class="card-icon-wrapper">
-                <i class="devicon-java-plain java-gradient"  aria-label="Java"></i>
-              </div>
-              <div class="card-icon-wrapper">
-                <i class="devicon-php-plain" style="color:#6d57a1" aria-label="PHP"></i>
+                <i class="devicon-java-plain" aria-label="Java"></i>
               </div>
               <div class="card-icon-wrapper">
                 <i class="devicon-laravel-plain" style="color:#FF2D20" aria-label="Laravel"></i>
               </div>
               <div class="card-icon-wrapper">
                 <i class="devicon-python-plain python-gradient" aria-label="Python"></i>
-              </div>
-              <div class="card-icon-wrapper">
-                <i class="devicon-postman-plain" style="color:#ff7c02d3" aria-label="Postman"></i>
               </div>
             </div>
             <h3 class="card-title">Back-End</h3>
@@ -221,13 +211,13 @@
                 <i class="devicon-css3-plain" style="color:#1572B6" aria-label="CSS3"></i>
               </div>
               <div class="card-icon-wrapper">
-                <i class="devicon-tailwindcss-original" style="color:#61DAFB" aria-label="React"></i>
-              </div>
-              <div class="card-icon-wrapper">
                 <i class="devicon-javascript-plain" style="color:#F7DF1E" aria-label="JavaScript"></i>
               </div>
               <div class="card-icon-wrapper">
                 <i class="devicon-react-original" style="color:#61DAFB" aria-label="React"></i>
+              </div>
+              <div class="card-icon-wrapper">
+                <i class="devicon-figma-plain figma-gradient" aria-label="Figma"></i>
               </div>
             </div>
             <h3 class="card-title">Front-End</h3>
@@ -275,6 +265,9 @@
   <!-- /hardskills -->
 
 
+  <!-- ═══════════════════════════════════════════
+       GALERIA
+  ═══════════════════════════════════════════ -->
   <section id="galeria" aria-label="Galeria de fotos">
     <div class="galeria-inner">
 
@@ -293,7 +286,7 @@
                 <span class="galeria-card-label">Grupo de TCC da Etec — 2025</span>
                 <div class="galeria-card-img-wrapper">
                   <img
-                    src="../public/assets/img/galeria/timeMaze.jpeg"
+                    src="/assets/timeMaze-D7uRnGSZ.jpeg"
                     alt="Apresentação do TCC"
                     class="galeria-card-img"
                     loading="lazy"
@@ -305,7 +298,7 @@
                 <span class="galeria-card-label">Apresentação TCC — 2025</span>
                 <div class="galeria-card-img-wrapper">
                   <img
-                    src="../public/assets/img/galeria/fotoNoTCC.jpg"
+                    src="/assets/fotoNoTCC-jUhXo_p4.jpg"
                     alt="Pitch Buscamed"
                     class="galeria-card-img"
                     loading="lazy"
@@ -317,7 +310,7 @@
                 <span class="galeria-card-label">Aprovação na Fatec ZL — 2026</span>
                 <div class="galeria-card-img-wrapper">
                   <img
-                    src="../public/assets/img/galeria/aprovaçãoFATEC.jpeg"
+                    src="/assets/aprova%C3%A7%C3%A3oFATEC-DNOHfvkx.jpeg"
                     alt="Aprovação na Fatec ZL"
                     class="galeria-card-img"
                     loading="lazy"
@@ -337,6 +330,9 @@
   <!-- /galeria -->
 
 
+  <!-- ═══════════════════════════════════════════
+       PROJETOS  — renderizado via projects.js
+  ═══════════════════════════════════════════ -->
   <section id="projetos" class="projetos-section" aria-label="Projetos">
 
     <div class="projetos-header">
@@ -362,6 +358,9 @@
   <!-- /projetos -->
 
 
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
   <footer>
     <div class="line-footer2"></div>
     <div class="line-footer3">
