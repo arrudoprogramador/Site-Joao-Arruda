@@ -1,0 +1,122 @@
+#hardskills {
+  padding: 100px clamp(40px, 8vw, 120px);
+  background-color: var(--bg);
+  text-align: center;
+}
+
+#hardskills h2 {
+  color: var(--text-primary);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.3em;
+}
+
+#hardskills h2 span { color: var(--accent-gold); }
+
+.container-principal {
+  max-width: 1400px;
+  margin: auto;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+.hardskills-centralizar {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(16px, 2vw, 32px);
+  width: 100%;
+}
+
+.card-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.img_desc {
+  background-color: var(--surface-primary);
+  border: 0.5px solid var(--accent-gold);
+  padding: clamp(24px, 3vw, 48px) clamp(20px, 2.5vw, 40px);
+  border-radius: 16px;
+  flex: 1;
+  min-width: clamp(200px, 20vw, 260px);
+  max-width: clamp(280px, 25vw, 380px);
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.img_desc:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent-gold);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.8);
+}
+
+.card-icon-wrapper {
+  width: clamp(34px, 3.5vw, 52px);
+  height: clamp(34px, 3.5vw, 52px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.card-icon-wrapper i { font-size: clamp(1.8rem, 2.5vw, 2.8rem); color: #E76F00; }
+
+.img_desc:hover .card-icon-wrapper { border-color: #C9A84C55; }
+
+.python-gradient {
+  font-size: clamp(1.8rem, 2.5vw, 2.8rem);
+  background: linear-gradient(135deg, #3776AB 22%, #FFD43B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.java-gradient {
+    background: linear-gradient(135deg, #f89820 0%, #0a4ea7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.figma-gradient {
+  font-size: clamp(1.8rem, 2.5vw, 2.8rem);
+  background: linear-gradient(180deg, #FF7262 0%, #F24E1E 25%, #A259FF 50%, #1ABCFE 75%, #0ACF83 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.card-title {
+  font-size: clamp(0.85rem, 1.1vw, 1.1rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+.text_hardskills { font-size: clamp(0.85rem, 1vw, 1rem); color: var(--text-secondary); line-height: 1.6; }
+
+.card-hidden  { transform: translateY(30px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+.card-visible { opacity: 1; transform: translateY(0); }
