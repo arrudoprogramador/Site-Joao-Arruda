@@ -63,8 +63,6 @@ A aplicação foi construída utilizando tecnologias modernas do ecossistema web
 └── README.md
 ```
 
-```
-
 A arquitetura foi organizada visando escalabilidade, manutenção simplificada e separação de responsabilidades entre estilos, scripts e recursos estáticos.
 
 ## Funcionalidades
