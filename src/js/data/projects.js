@@ -5,7 +5,7 @@ export const projects = [
     logoAlt: "Logo Eleven Store",
     name: "Eleven Store",
     tag: "Web (*Em desenvolvimento)",
-    description: "Loja real de venda de camisetas. Estou escalando para uma plataforma de e-commerce modular, escalável e reutilizável.",
+    description: "Loja real de venda de camisetas. Futuramente plataforma de e-commerce escalável e reutilizável.",
     stack: ["Next.js", "TypeScript", "Tailwind CSS"],
     links: {
       github: "https://github.com/arrudoprogramador/Base-Commerce",
