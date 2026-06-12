@@ -27,7 +27,7 @@ export const projects = [
       "Sistema completo para indicação das UBS mais próximas com o medicamento desejado, facilitando o acesso à saúde pública.",
     stack: ["React Native", "Laravel", "MySQL"],
     links: {
-      github: "https://github.com/arrudoprogramador",
+      github: "https://github.com/FrancisWeydson/BuscaMed_Crud.git",
       demo: null,
       pitch: "https://youtu.be/QRviIKZPZK8?si=zRNpd1IjvODqUhyC",
     },

@@ -1,0 +1,26 @@
+/* botão de tema */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  transition: background .2s ease, color .2s ease;
+}
+
+.theme-toggle:hover {
+  background: var(--border-hover-soft);
+  color: var(--accent-gold);
+}
+
+.icon-sun { display: none !important;}
+.icon-moon { display: inline-block !important;}
+
+[data-theme="light"] .icon-moon { display: none !important; }
+[data-theme="light"] .icon-sun  { display: inline-block !important; }

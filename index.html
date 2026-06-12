@@ -4,17 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfólio — João Arruda</title>
-  <link rel="stylesheet" href="src/styles/reset.css">
+  <link rel="stylesheet" href="src/styles/resetDark.css">
+  <link rel="stylesheet" href="src/styles/resetLight.css">
   <link rel="stylesheet" href="src/styles/base.css">
   <link rel="stylesheet" href="src/styles/components/header.css">
   <link rel="stylesheet" href="src/styles/components/footer.css">
+  <link rel="stylesheet" href="src/styles/components/buttonTheme.css">
   <link rel="stylesheet" href="src/styles/sections/hero.css">
   <link rel="stylesheet" href="src/styles/sections/sobre.css">
   <link rel="stylesheet" href="src/styles/sections/hardskills.css">
   <link rel="stylesheet" href="src/styles/sections/galeria.css">
   <link rel="stylesheet" href="src/styles/sections/projetos.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+
+  <script>
+  (function() {
+    const saved = localStorage.getItem('theme');
+    const theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    document.documentElement.setAttribute('data-theme', theme);
+  })();
+</script>
 
   <script type="module" src="src/js/main.js"></script>
+  <script type="module" src="src/js/themes.js"></script>
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
@@ -25,6 +37,7 @@
   <meta property="og:type"        content="website">
   <meta property="og:site_name"   content="João Arruda">
   <meta name="twitter:card"       content="summary_large_image">
+
 </head>
 
 <body>
@@ -41,13 +54,12 @@
       </ul>
     </nav>
 
-    <button
-      class="nav-hamburger"
-      id="navHamburger"
-      aria-label="Abrir menu"
-      aria-expanded="false"
-      aria-controls="navbar"
-    >
+    <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+      <i class="fa-solid fa-moon icon-moon"></i>
+      <i class="fa-solid fa-sun icon-sun"></i>
+    </button>
+
+    <button class="nav-hamburger" id="navHamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="navbar">
       <span></span>
       <span></span>
       <span></span>

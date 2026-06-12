@@ -25,7 +25,7 @@
   align-items: center;
   gap: 10px;
   padding: 8px 18px;
-  border: 0.5px solid rgba(110, 231, 183, 0.3);
+  border: 0.5px solid var(--border-success);
   border-radius: 999px;
   font-size: 14px;
   color: var(--text-primary);
@@ -37,7 +37,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #0acf83;
+  background: var(--accent-success);
   animation: pulse 2s infinite;
   flex-shrink: 0;
 }
@@ -134,9 +134,9 @@
   background: conic-gradient(
     from var(--angle, 0deg),
     transparent 20%,
-    #4cc9f0 40%,
-    #4361ee 60%,
-    #7b6ed6 75%,
+    var(--accent-blue) 40%,
+    var(--accent-indigo) 60%,
+    var(--accent-violet) 75%,
     transparent 90%
   );
 }
@@ -145,8 +145,8 @@
   background: conic-gradient(
     from var(--angle, 0deg),
     transparent 20%,
-    #c9a84c 40%,
-    #7b6ed6 60%,
+    var(--accent-gold) 40%,
+    var(--accent-violet) 60%,
     transparent 80%
   );
 }
@@ -177,14 +177,14 @@
   padding: 7px 16px;
   border-radius: 6px;
   font-size: 13px;
-  color: #b0b0c0;
+  color: var(--text-primary);
   background: var(--surface-secondary);
   border: 0.5px solid var(--border-primary);
   font-family: "Courier New", monospace;
   transition: background 0.15s, border-color 0.15s;
 }
 
-.chip:hover { background: #1e1e1e; border-color: rgba(255, 255, 255, 0.18); }
+.chip:hover { background: var(--bg-card); border-color: var(--border-secondary); }
 
 .chip::after {
   content: "";
@@ -193,7 +193,7 @@
   left: -60%;
   width: 40%;
   height: 200%;
-  background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.08) 50%, transparent 60%);
+  background: linear-gradient(105deg, transparent 40%, var(--border-secondary) 50%, transparent 60%);
   transform: skewX(-15deg);
   transition: left 0.4s ease;
   pointer-events: none;
@@ -212,7 +212,6 @@
   transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s, box-shadow 0.3s ease;
 }
 
-.hero-photo-wrapper:hover { box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5); }
 
 .hero-photo {
   width: 100%;
@@ -232,7 +231,7 @@
   align-items: center;
   justify-content: center;
   gap: 12px;
-  color: rgba(255, 255, 255, 0.3);
+  color: var(--border-secondary);
   font-size: 13px;
 }
 
