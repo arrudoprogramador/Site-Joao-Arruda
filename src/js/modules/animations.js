@@ -13,7 +13,7 @@ export function initHeroAnimation() {
 // ── Scroll reveal — seções ─────────────────────────────────────────────────
 export function initScrollReveal() {
   const revealEls = document.querySelectorAll(
-    ".img_desc, .galeria-card, .projeto-card, .sobre-direita, .sobre-foto-wrapper, .sobre-info-item"
+    ".img_desc, .projeto-card, .sobre-direita, .sobre-foto-wrapper, .sobre-info-item"
   );
 
   revealEls.forEach((el) => el.classList.add("reveal"));

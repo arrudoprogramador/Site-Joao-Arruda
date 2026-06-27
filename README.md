@@ -20,7 +20,6 @@ A aplicação foi construída utilizando tecnologias modernas do ecossistema web
 ├── public/
 │   └── assets/
 │       └── img/
-│           ├── galeria/
 │           ├── hero/
 │           └── projetos/
 │
@@ -40,7 +39,6 @@ A aplicação foi construída utilizando tecnologias modernas do ecossistema web
 │       │   └── header.css
 │       │
 │       ├── sections/
-│       │   ├── galeria.css
 │       │   ├── hardskills.css
 │       │   ├── hero.css
 │       │   ├── projetos.css
