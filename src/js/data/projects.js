@@ -56,6 +56,25 @@ export const projects = [
       { src: "assets/img/fotoPegasus2.png",             alt: "Random Burguer — tela 2 de 2" },
     ],
   },
+  // {
+  //   id: "deposito",
+  //   logo: "assets/img/projetos/logo-pegasus.png",
+  //   logoAlt: "Logo Pegasus",
+  //   name: "Pegasus",
+  //   tag: "Mobile / Web",
+  //   description:
+  //     "Sistema de gerenciamento de E-commerce e aplicação mobile para usuários. Loja fictícia direcionada à venda de roupas esportivas.",
+  //   stack: ["React Native", "Laravel", "MySQL"],
+  //   links: {
+  //     github: "https://github.com/arrudoprogramador/Pegasus-Projeto",
+  //     demo: null,
+  //     pitch: null,
+  //   },
+  //   images: [
+  //     { src: "assets/img/projetos/pegasus1.png", alt: "Pegasus — tela 1 de 2" },
+  //     { src: "assets/img/projetos/pegasus2.png", alt: "Pegasus — tela 2 de 2" },
+  //   ],
+  // },
   {
     id: "pegasus",
     logo: "assets/img/projetos/logo-pegasus.png",
