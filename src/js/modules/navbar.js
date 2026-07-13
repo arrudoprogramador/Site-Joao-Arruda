@@ -1,5 +1,4 @@
 export function initNavbar() {
-  // ── Active link on scroll ──────────────────────────────────────────────────
   const sections = document.querySelectorAll("section[id]");
   const navLinks = document.querySelectorAll(".navbar a");
 
