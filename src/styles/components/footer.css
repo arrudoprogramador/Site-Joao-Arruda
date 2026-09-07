@@ -3,7 +3,7 @@ footer {
   border-top: 0.5px solid var(--border-primary);
   padding: clamp(60px, 8vw, 100px) 0 0 0;
   position: relative;
-  overflow: visible;
+  overflow: hidden;
 }
 
 footer::before {
@@ -14,6 +14,19 @@ footer::before {
   right: 0;
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+}
+
+footer::after {
+  content: '';
+  position: absolute;
+  bottom: -220px;
+  left: 12%;
+  width: 560px;
+  height: 560px;
+  background: radial-gradient(circle, var(--orb-gold), transparent 70%);
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Container principal */
@@ -166,7 +179,7 @@ footer::before {
   border-color: var(--accent-gold);
   color: var(--accent-gold);
   transform: translateY(-8px) scale(1.08);
-  box-shadow: 0 16px 40px rgba(201, 168, 76, 0.4);
+  box-shadow: 0 16px 40px rgba(124, 92, 255, 0.4);
 }
 
 .footer-socials a:hover::before {
@@ -206,13 +219,13 @@ footer::before {
 
 .footer-title {
   color: var(--text-primary);
-  font-size: clamp(1.1rem, 2vw, 1.4rem);
-  font-weight: 500;
+  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+  font-weight: 400;
   margin: 0;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.01em;
   position: relative;
   padding-bottom: 16px;
-  line-height: 1.2;
+  line-height: 1.1;
   text-align:start;
 }
 
@@ -225,7 +238,7 @@ footer::before {
   height: 3px;
   background: linear-gradient(90deg, var(--accent-gold), var(--accent-gold-hover));
   border-radius: 2px;
-  box-shadow: 0 0 12px rgba(201, 168, 76, 0.3);
+  box-shadow: 0 0 12px rgba(124, 92, 255, 0.3);
 }
 
 /* =====================
@@ -245,7 +258,7 @@ footer::before {
 }
 
 .footer-form:hover {
-  border-color: rgba(201, 168, 76, 0.25);
+  border-color: rgba(124, 92, 255, 0.25);
 }
 
 /* Grupos de formulário */
@@ -292,7 +305,7 @@ footer::before {
   outline: none;
   border-color: var(--accent-gold);
   background: var(--bg);
-  box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.2), inset 0 0 8px rgba(201, 168, 76, 0.05);
+  box-shadow: 0 0 0 4px rgba(124, 92, 255, 0.2), inset 0 0 8px rgba(124, 92, 255, 0.05);
 }
 
 /* Ações do formulário */
@@ -370,7 +383,7 @@ footer::before {
   color: var(--text-primary);
   background: var(--bg);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(201, 168, 76, 0.1);
+  box-shadow: 0 8px 20px rgba(124, 92, 255, 0.1);
 }
 
 /* Mensagens do formulário */

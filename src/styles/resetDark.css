@@ -6,54 +6,138 @@
 
 [data-theme="dark"] {
   /* BACKGROUNDS */
-  --bg: #0D0D0D;
-  --bg2: #131318;
-  --bg-elevated: #0F0F0F;
-  --bg-card: #1A1A24;
+  --bg: #0B0B0F;
+  --bg2: #101016;
+  --bg-elevated: #0E0E12;
+  --bg-card: #15151D;
 
-  /* ACCENTS */
-  --accent: #C9A84C;
-  --accent-gold: #C9A84C;
-  --accent-gold-hover: #D6B457;
+  /* ACCENTS — sistema neutros + violeta */
+  --accent: #7C5CFF;
+  --accent-gold: #7C5CFF;
+  --accent-gold-hover: #8F72FF;
 
-  --accent-blue: #4CC9F0;
-  --accent-indigo: #4361EE;
+  --accent-blue: #5B48E6;
+  --accent-indigo: #6C57E0;
   --accent-purple: #5246A1;
-  --accent-violet: #7B6ED6;
+  --accent-violet: #9D8CFF;
   --accent-success: #0ACF83;
 
   --border-success: rgba(10, 207, 131, 0.3);
 
   /* TEXT */
-  --text-primary: #F0F0F5;
-  --text-secondary: #7A7A8A;
-  --text-muted: #4A4A5A;
+  --text-primary: #F2F1F5;
+  --text-secondary: #A4A1AE;
+  --text-muted: #565360;
   --text-dark: #000000;
 
   /* BORDERS */
-  --border-primary: #2A2A2A;
+  --border-primary: #23232B;
   --border-secondary: rgba(255,255,255,.12);
 
-  --border-card: #2A2A3A;
-  --border-dots: #3A3A4A;
+  --border-card: #23232D;
+  --border-dots: #33333F;
 
-  --border-hover: rgba(201,168,76,.30);
-  --border-hover-soft: rgba(201,168,76,.15);
+  --border-hover: rgba(124,92,255,.45);
+  --border-hover-soft: rgba(124,92,255,.16);
 
   /* SURFACES */
-  --surface-primary: #131318;
-  --surface-secondary: #161616;
+  --surface-primary: #101016;
+  --surface-secondary: #13131A;
 
   /* OVERLAYS */
-  --overlay-dark: rgba(13,13,13,.75);
-  --overlay-dark-strong: rgba(13,13,13,.90);
+  --overlay-dark: rgba(11,11,15,.75);
+  --overlay-dark-strong: rgba(11,11,15,.90);
 
   /* HEADER */
-  --header-bg: rgba(0,0,0,.85);
-  --header-bg-mobile: rgba(0,0,0,.97);
+  --header-bg: rgba(11,11,15,.78);
+  --header-bg-mobile: rgba(11,11,15,.96);
 
   /* SHADOWS */
-  --shadow-soft: 0 10px 30px rgba(0,0,0,.25);
-  --shadow-card: 0 16px 40px rgba(0,0,0,.80);
-  --shadow-gold: 0 4px 24px rgba(201,168,76,.09);
+  --shadow-soft: 0 10px 30px rgba(0,0,0,.30);
+  --shadow-card: 0 16px 40px rgba(0,0,0,.60);
+  --shadow-gold: 0 4px 24px rgba(124,92,255,.16);
+
+  /* FONTS */
+  --font-display: "Anton", Impact, "Arial Narrow", sans-serif;
+  --font-sans: "Sora", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", "Courier New", monospace;
+
+  /* DECOR */
+  --text-on-accent: #FFFFFF;
+  --grid-line: rgba(124,92,255,.06);
+  --orb-glow: rgba(124,92,255,.18);
+  --orb-violet: rgba(124,92,255,.24);
+  --orb-gold: rgba(124,92,255,.12);
+  --orb-blue: rgba(157,140,255,.14);
+  --glass-bg: rgba(21,21,29,.55);
+  --duotone-tint: #4A38CE;
+}
+
+[data-theme="ultra"] {
+  /* BACKGROUNDS */
+  --bg: #1B0440;
+  --bg2: #260B57;
+  --bg-elevated: rgba(255,255,255,.05);
+  --bg-card: rgba(255,255,255,.07);
+
+  /* ACCENTS — sistema neutros + violeta */
+  --accent: #A78BFD;
+  --accent-gold: #A78BFD;
+  --accent-gold-hover: #BBA2FD;
+
+  --accent-blue: #7B5CE6;
+  --accent-indigo: #9D8BFF;
+  --accent-purple: #B59FFF;
+  --accent-violet: #C9BBFF;
+  --accent-success: #3DF2A0;
+
+  --border-success: rgba(61,242,160,.30);
+
+  /* TEXT */
+  --text-primary: #F6F3FF;
+  --text-secondary: rgba(245,242,255,.66);
+  --text-muted: rgba(245,242,255,.44);
+  --text-dark: #0B0220;
+
+  /* BORDERS */
+  --border-primary: rgba(255,255,255,.16);
+  --border-secondary: rgba(255,255,255,.22);
+
+  --border-card: rgba(255,255,255,.14);
+  --border-dots: rgba(255,255,255,.22);
+
+  --border-hover: rgba(167,139,253,.50);
+  --border-hover-soft: rgba(167,139,253,.20);
+
+  /* SURFACES */
+  --surface-primary: rgba(255,255,255,.06);
+  --surface-secondary: rgba(255,255,255,.05);
+
+  /* OVERLAYS */
+  --overlay-dark: rgba(23,4,72,.75);
+  --overlay-dark-strong: rgba(23,4,72,.90);
+
+  /* HEADER */
+  --header-bg: rgba(29,6,80,.80);
+  --header-bg-mobile: rgba(27,4,64,.96);
+
+  /* SHADOWS */
+  --shadow-soft: 0 10px 30px rgba(5,0,40,.40);
+  --shadow-card: 0 16px 44px rgba(5,0,40,.60);
+  --shadow-gold: 0 4px 24px rgba(167,139,253,.18);
+
+  /* FONTS */
+  --font-display: "Anton", Impact, "Arial Narrow", sans-serif;
+  --font-sans: "Sora", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", "Courier New", monospace;
+
+  /* DECOR */
+  --text-on-accent: #24104F;
+  --grid-line: rgba(255,255,255,.06);
+  --orb-glow: rgba(167,139,253,.26);
+  --orb-violet: rgba(167,139,253,.30);
+  --orb-gold: rgba(167,139,253,.16);
+  --orb-blue: rgba(201,187,255,.16);
+  --glass-bg: rgba(255,255,255,.07);
+  --duotone-tint: #A78BFD;
 }

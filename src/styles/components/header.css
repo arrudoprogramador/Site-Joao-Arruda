@@ -1,77 +1,89 @@
 header {
   width: 100%;
-  height: 60px;
+  height: 64px;
   position: sticky;
   top: 0;
   z-index: 99;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 40px;
+  padding: 0 clamp(20px, 4vw, 48px);
   background-color: var(--header-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-bottom: 0.5px solid var(--border-secondary);
-  box-shadow: 0 4px 24px var(--shadow-gold);
   transition: background-color 0.3s ease;
+  gap: 24px;
 }
 
+/* ── Logo ── */
 .nav_title h6 {
-  color: var(--accent-gold);
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
   white-space: nowrap;
+  background: linear-gradient(100deg, var(--accent-gold), var(--accent-violet));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 /* ── Navbar ── */
 .navbar {
   display: flex;
   align-items: center;
-  gap: 36px;
-  list-style: none; /* remove bullets */
-  margin: 0;
-  padding: 0;
-}
-
-/* Remove estilo padrão dos li */
-.navbar li {
+  gap: clamp(20px, 3vw, 38px);
   list-style: none;
   margin: 0;
   padding: 0;
+  margin-left: auto;
 }
+
+.navbar li { list-style: none; margin: 0; padding: 0; }
 
 .navbar a {
   position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
   color: var(--text-secondary);
   text-decoration: none;
-  font-size: 0.95rem;
-  font-weight: 400;
-  letter-spacing: 0.03em;
-  padding-bottom: 2px;
-  opacity: 0.8;
-  transition: color 0.3s ease;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding-bottom: 3px;
+  opacity: 0.85;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.navbar a span {
+  font-size: 0.62rem;
+  color: var(--accent-gold);
+  opacity: 0.85;
 }
 
 .navbar a:hover,
 .navbar a.active {
-  color: var(--accent-gold);
+  color: var(--text-primary);
+  opacity: 1;
 }
 
 .navbar a::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -4px;
+  bottom: -2px;
   width: 0;
   height: 1px;
   background: var(--accent-gold);
-  transition: width .3s ease;
+  transition: width 0.3s ease;
 }
 
+.navbar a:hover::after,
 .navbar a.active::after {
   width: 100%;
-  opacity: 1;
 }
 
 /* ── Hamburger ── */
@@ -85,6 +97,8 @@ header {
   cursor: pointer;
   padding: 4px;
   z-index: 100;
+  order: 3;
+  margin-left: 2px;
 }
 
 .nav-hamburger span {
@@ -102,68 +116,59 @@ header {
 
 /* ── Mobile ── */
 @media (max-width: 768px) {
-  header { padding: 0 24px; }
+  header { padding: 0 20px; }
 
   .nav-hamburger { display: flex; }
 
-  .nav_title {
-    order: 1;
-  }
+  .nav_title { order: 1; }
 
   .theme-toggle {
     order: 2;
     margin-left: auto;
   }
 
-  .nav-hamburger {
-    order: 3;
-    margin-left: 0.5rem;
-  }
-
   .navbar {
     position: fixed;
-    top: 60px;
+    top: 64px;
     left: 0;
     width: 100%;
     flex-direction: column;
-    align-items: flex-start; /* alinha à esquerda no mobile */
+    align-items: flex-start;
+    justify-content: flex-start;
     gap: 0;
     background-color: var(--header-bg-mobile);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 0.5px solid var(--border-card);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 0.5px solid var(--border-secondary);
     padding: 0;
+    margin: 0;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.35s ease, padding 0.35s ease;
+    transition: max-height 0.4s ease, padding 0.4s ease;
   }
 
-  .navbar.open { max-height: 400px; padding: 12px 0; }
+  .navbar.open { max-height: 420px; padding: 14px 0; }
 
-  /* li ocupa largura total no mobile */
   .navbar li { width: 100%; }
 
   .navbar a {
-    display: block;
+    display: flex;
+    align-items: center;
     width: 100%;
-    padding: 14px 24px;
-    font-size: 1rem;
-    border-bottom: none;
+    padding: 16px 24px;
+    font-size: 0.95rem;
     border-left: 2px solid transparent;
-    transition: color 0.2s, border-color 0.2s, background 0.2s;
   }
+
+  .navbar a span { font-size: 0.7rem; }
 
   .navbar a:hover,
   .navbar a.active {
-    color: var(--accent-gold);
-    background: var(--shadow-gold);
-    font-size: 1rem;
+    background: var(--border-hover-soft);
+    border-left-color: var(--accent-gold);
   }
 
-  .navbar a::after {
-    display: none;
-  }
-
+  .navbar a::after { display: none; }
 }
 
 @media (max-width: 480px) { header { padding: 0 16px; } }

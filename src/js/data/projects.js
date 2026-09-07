@@ -6,7 +6,7 @@ export const projects = [
     tag: "Profissional",
     description: "Catálogo de loja com integração de pedidos ao WhatsApp.",
     stack: ["JS Vanilla", "Tailwind"],
-    image: "assets/img/projetos/amizade1.png",
+    image: "public/assets/img/projetos/amizade1.svg",
     links: {
       github: "https://github.com/arrudoprogramador/Deposito-Amizade",
       demo: 'https://deposito-amizade.vercel.app',
@@ -15,12 +15,12 @@ export const projects = [
   },
   {
     id: "eleven-store",
-    logo: "assets/img/projetos/logo-eleven.jpeg",
+    logo: "public/assets/img/projetos/logo-eleven.svg",
     name: "Eleven Store",
     tag: "Profissional",
     description: "Loja de camisetas. Futuramente plataforma de e-commerce escalável e reutilizável.",
     stack: ["Next", "TypeScript", "Tailwind"],
-    image: "assets/img/projetos/eleven-store1.png",
+    image: "public/assets/img/projetos/eleven-store1.svg",
     links: {
       github: "https://github.com/arrudoprogramador/Eleven-Store",
       demo: 'https://eleven-store-arruda.vercel.app',
@@ -29,12 +29,12 @@ export const projects = [
   },
   {
     id: "buscamed",
-    logo: "assets/img/projetos/logo-buscamed.png",
+    logo: "assets/img/projetos/logo-buscamed.svg",
     name: "Buscamed",
     tag: "Acadêmico",
     description: "Sistema completo para indicação das UBS mais próximas com o medicamento desejado.",
     stack: ["React Native", "Laravel", "MySQL"],
-    image: "assets/img/projetos/buscamed1.png",
+    image: "public/assets/img/projetos/buscamed1.svg",
     links: {
       github: "https://github.com/FrancisWeydson/BuscaMed_Crud.git",
       demo: null,
@@ -43,12 +43,12 @@ export const projects = [
   },
   {
     id: "random-burguer",
-    logo: "assets/img/projetos/logo-random.png",
+    logo: "assets/img/projetos/logo-random.svg",
     name: "Random Burguer",
     tag: "Acadêmico",
     description: "Gerenciamento de restaurante com painel administrativo e área do cliente.",
     stack: ["Tailwind", "Laravel", "Docker"],
-    image: "assets/img/projetos/random-burguer1.png",
+    image: "public/assets/img/projetos/random-burguer1.svg",
     links: {
       github: "https://github.com/arrudoprogramador/Random-Burguer",
       demo: 'https://random-burguer-production.up.railway.app',
@@ -76,12 +76,12 @@ export const projects = [
   // },
   {
     id: "pegasus",
-    logo: "assets/img/projetos/logo-pegasus.png",
+    logo: "assets/img/projetos/logo-pegasus.svg",
     name: "Pegasus",
     tag: "Acadêmico",
     description: "Gerenciamento de E-commerce e aplicação mobile para usuários.",
     stack: ["React Native", "Laravel", "MySQL"],
-    image: "assets/img/projetos/pegasus1.png",
+    image: "public/assets/img/projetos/pegasus1.svg",
     links: {
       github: "https://github.com/arrudoprogramador/Pegasus-Projeto",
       demo: null,
@@ -89,50 +89,39 @@ export const projects = [
     },
   },
 ];
-function buildCard(project) {
-  const { id, logo, name, tag, description, stack, links, image } = project;
+function buildRow(project, index) {
+  const { id, name, tag, stack, links, image } = project;
 
-  const stackHTML = stack.map((s) => `<span class="chip">${s}</span>`).join("\n");
+  const primaryHref = links.demo || links.pitch || links.github;
+  const primaryLabel = links.demo ? "Ver projeto" : links.pitch ? "Pitch" : "Código";
+  const hasCode = !!links.github && links.github !== primaryHref;
 
-  let buttonsHTML = "";
-  if (links.pitch) {
-    buttonsHTML += `<a class="btn-pitch" href="${links.pitch}" target="_blank" rel="noopener noreferrer">▶ Vídeo Pitch</a>`;
-  }
-  if (links.demo) {
-    buttonsHTML += `<a class="btn-pitch" href="${links.demo}" target="_blank" rel="noopener noreferrer">Ir para o site</a>`;
-  }
-  if (links.github) {
-    buttonsHTML += `<a class="btn-github" href="${links.github}" target="_blank" rel="noopener noreferrer">GitHub</a>`;
-  }
+  const nameParts = name.replace(/\s+/g, "<br>");
+
+  const codeLink = hasCode
+    ? `<a class="project-code" href="${links.github}" target="_blank" rel="noopener noreferrer">Código <i class="fa-solid fa-arrow-up-right-from-square"></i></a>`
+    : "";
 
   return `
-    <article class="projeto-card">
-      <div class="projeto-info">
-        <div class="projeto-meta">
-          <img class="projeto-logo" src="${logo}" alt="" loading="lazy">
-          <div>
-            <h3 class="projeto-nome">${name}</h3>
-            <span class="projeto-tag">${tag}</span>
-          </div>
-        </div>
-
-        <p class="projeto-desc">${description}</p>
-
-        <div class="projeto-stack">
-          ${stackHTML}
-        </div>
-
-        <div class="projeto-botoes">
-          ${buttonsHTML}
-        </div>
+    <li class="project-row" style="--i:${index}" data-project="${id}">
+      <span class="project-num">${String(index + 1).padStart(2, "0")}</span>
+      <a class="project-main" href="${primaryHref}" target="_blank" rel="noopener noreferrer" aria-label="${name}">
+        <span class="project-title">${nameParts}</span>
+      </a>
+      <div class="project-meta">
+        <span class="project-cat">${tag}</span>
+        <span class="project-tech">${stack.join(" · ")}</span>
+        ${codeLink}
+        <span class="project-go">${primaryLabel} <i class="fa-solid fa-arrow-right"></i></span>
       </div>
-
-      <img class="projeto-img" src="${image}" alt="${name}" loading="lazy">
-    </article>`;
+      <div class="project-preview-frame">
+        <img src="${image}" alt="" loading="lazy">
+      </div>
+    </li>`;
 }
 
 export function renderProjects() {
   const track = document.getElementById("projetosTrack");
   if (!track) return;
-  track.innerHTML = projects.map(buildCard).join("\n");
+  track.innerHTML = projects.map(buildRow).join("\n");
 }

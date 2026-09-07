@@ -1,28 +1,54 @@
 export function initHeroAnimation() {
-  const heroContent = document.querySelector(".hero-content");
-  const heroPhoto   = document.querySelector(".hero-photo-wrapper");
+  const hero = document.querySelector(".hero");
 
-  requestAnimationFrame(() => {
-    setTimeout(() => {
-      heroContent?.classList.add("animated");
-      heroPhoto?.classList.add("animated");
-    }, 80);
+  const run = () => {
+    requestAnimationFrame(() => {
+      hero?.classList.add("animated");
+    });
+  };
+
+  if (document.readyState === "complete") run();
+  else window.addEventListener("load", run, { once: true });
+}
+
+// ── Parallax sutil da foto do hero ─────────────────────────────────────────
+export function initHeroParallax() {
+  const fig = document.querySelector(".hero-figure");
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!fig || reduce) return;
+
+  if (!window.matchMedia("(min-width: 768px)").matches) return;
+
+  window.addEventListener("mousemove", (e) => {
+    const x = e.clientX / window.innerWidth - 0.5;
+    const y = e.clientY / window.innerHeight - 0.5;
+    fig.style.transform = `translate(${x * -16}px, ${y * -12}px)`;
   });
 }
 
 // ── Scroll reveal — seções ─────────────────────────────────────────────────
 export function initScrollReveal() {
   const revealEls = document.querySelectorAll(
-    ".img_desc, .projeto-card, .sobre-direita, .sobre-foto-wrapper, .sobre-info-item"
+    ".img_desc, .projeto-card, .sobre-direita, .sobre-foto-wrapper, .sobre-info-item, .section-heading, .project-row"
   );
 
-  revealEls.forEach((el) => el.classList.add("reveal"));
+  revealEls.forEach((el) => {
+    if (!el.classList.contains("project-row")) {
+      el.classList.add("reveal");
+    }
+  });
 
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add("visible"), i * 80);
+          setTimeout(() => {
+            if (entry.target.classList.contains("project-row")) {
+              entry.target.classList.add("in-view");
+            } else {
+              entry.target.classList.add("visible", "card-visible");
+            }
+          }, entry.target.classList.contains("project-row") ? 0 : i * 80);
           observer.unobserve(entry.target);
         }
       });

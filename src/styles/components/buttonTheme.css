@@ -1,26 +1,30 @@
-/* botão de tema */
+/* botão de tema — 3 modos (dark / light / ultra) */
 .theme-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
   background: transparent;
-  border: none;
+  border: 0.5px solid var(--border-secondary);
   cursor: pointer;
   color: var(--text-primary);
-  font-size: 1.1rem;
-  width: 2.25rem;
-  height: 2.25rem;
+  font-size: 0.95rem;
+  width: 2.4rem;
+  height: 2.4rem;
   border-radius: 50%;
-  transition: background .2s ease, color .2s ease;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
 }
 
 .theme-toggle:hover {
   background: var(--border-hover-soft);
   color: var(--accent-gold);
+  transform: rotate(18deg);
 }
 
-.icon-sun { display: none !important;}
-.icon-moon { display: inline-block !important;}
+.theme-toggle i { display: none; }
 
-[data-theme="light"] .icon-moon { display: none !important; }
-[data-theme="light"] .icon-sun  { display: inline-block !important; }
+[data-theme="dark"]  .icon-dark  { display: inline-block; }
+[data-theme="light"] .icon-light { display: inline-block; }
+[data-theme="ultra"] .icon-ultra { display: inline-block; }
+
+[data-theme="light"] .theme-toggle { color: #1F1E1B; }
+[data-theme="ultra"] .theme-toggle { color: var(--accent-gold); }
