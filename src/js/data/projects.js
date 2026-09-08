@@ -6,7 +6,7 @@ export const projects = [
     tag: "Profissional",
     description: "Catálogo de loja com integração de pedidos ao WhatsApp.",
     stack: ["JS Vanilla", "Tailwind"],
-    image: "public/assets/img/projetos/amizade1.svg",
+    image: "/public/assets/img/projetos/amizade1.svg",
     links: {
       github: "https://github.com/arrudoprogramador/Deposito-Amizade",
       demo: 'https://deposito-amizade.vercel.app',
@@ -20,7 +20,7 @@ export const projects = [
     tag: "Profissional",
     description: "Loja de camisetas. Futuramente plataforma de e-commerce escalável e reutilizável.",
     stack: ["Next", "TypeScript", "Tailwind"],
-    image: "public/assets/img/projetos/eleven-store1.svg",
+    image: "/public/assets/img/projetos/eleven-store1.svg",
     links: {
       github: "https://github.com/arrudoprogramador/Eleven-Store",
       demo: 'https://eleven-store-arruda.vercel.app',
@@ -34,7 +34,7 @@ export const projects = [
     tag: "Acadêmico",
     description: "Sistema completo para indicação das UBS mais próximas com o medicamento desejado.",
     stack: ["React Native", "Laravel", "MySQL"],
-    image: "public/assets/img/projetos/buscamed1.svg",
+    image: "/public/assets/img/projetos/buscamed1.svg",
     links: {
       github: "https://github.com/FrancisWeydson/BuscaMed_Crud.git",
       demo: null,
@@ -48,7 +48,7 @@ export const projects = [
     tag: "Acadêmico",
     description: "Gerenciamento de restaurante com painel administrativo e área do cliente.",
     stack: ["Tailwind", "Laravel", "Docker"],
-    image: "public/assets/img/projetos/random-burguer1.svg",
+    image: "/public/assets/img/projetos/random-burguer1.svg",
     links: {
       github: "https://github.com/arrudoprogramador/Random-Burguer",
       demo: null,
