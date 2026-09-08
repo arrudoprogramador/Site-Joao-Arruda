@@ -51,7 +51,7 @@ export const projects = [
     image: "public/assets/img/projetos/random-burguer1.svg",
     links: {
       github: "https://github.com/arrudoprogramador/Random-Burguer",
-      demo: 'https://random-burguer-production.up.railway.app',
+      demo: null,
       pitch: null,
     },
   },
@@ -81,7 +81,7 @@ export const projects = [
     tag: "Acadêmico",
     description: "Gerenciamento de E-commerce e aplicação mobile para usuários.",
     stack: ["React Native", "Laravel", "MySQL"],
-    image: "public/assets/img/projetos/pegasus1.svg",
+    image: "/public/assets/img/projetos/pegasus1.svg",
     links: {
       github: "https://github.com/arrudoprogramador/Pegasus-Projeto",
       demo: null,
