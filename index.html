@@ -68,9 +68,9 @@
     <nav aria-label="Menu principal">
       <ul class="navbar" id="navbar">
         <li><a href="#home"       class="nav-link"><span>01</span> Início</a></li>
-        <li><a href="#sobre"      class="nav-link"><span>02</span> Sobre</a></li>
-        <li><a href="#hardskills" class="nav-link"><span>03</span> Skills</a></li>
-        <li><a href="#projetos"   class="nav-link"><span>04</span> Projetos</a></li>
+        <li><a href="#projetos"   class="nav-link"><span>02</span> Projetos</a></li>
+        <li><a href="#sobre"      class="nav-link"><span>03</span> Sobre</a></li>
+        <li><a href="#hardskills" class="nav-link"><span>04</span> Skills</a></li>
       </ul>
     </nav>
 
@@ -132,7 +132,7 @@
         </nav>
       </div>
 
-      <a class="hero-scroll" href="#sobre" aria-label="Rolar até a seção Sobre">
+      <a class="hero-scroll" href="#projetos" aria-label="Rolar até a seção Projetos">
         Scroll <i class="fa-solid fa-chevron-down"></i>
       </a>
     </section>
@@ -171,6 +171,41 @@
       </div>
     </section>
 
+    <section id="projetos" class="projetos-section" aria-label="Projetos em destaque">
+      <div class="projetos-header section-heading">
+        <span class="section-eyebrow">Portfólio</span>
+        <h2>Projetos em destaque</h2>
+        <p>Seleção de trabalhos desenvolvidos com foco em arquitetura robusta, performance e experiência do usuário.</p>
+      </div>
+
+      <div class="carousel-wrapper">
+        <div class="carousel-container" id="projectsCarousel" aria-roledescription="carousel" aria-label="Carrossel 3D de Projetos">
+          <button class="carousel-arrow carousel-arrow--prev" id="carouselPrevBtn" aria-label="Projeto anterior" title="Anterior">
+            <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+          </button>
+
+          <div class="carousel-stage" id="carouselStage" tabindex="0" role="region" aria-label="Galeria de projetos interativa. Use as setas do teclado ou arraste para navegar.">
+            <!-- Cards gerados dinamicamente via JavaScript -->
+          </div>
+
+          <button class="carousel-arrow carousel-arrow--next" id="carouselNextBtn" aria-label="Próximo projeto" title="Próximo">
+            <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <div class="carousel-footer">
+          <div class="carousel-pagination" id="carouselPagination" role="tablist" aria-label="Selecionar projeto"></div>
+          <div class="carousel-counter" id="carouselCounter" aria-live="polite">
+            <span class="carousel-counter-current" id="carouselCurrentNum">01</span>
+            <span class="carousel-counter-divider">/</span>
+            <span class="carousel-counter-total" id="carouselTotalNum">05</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /projetos -->
+
+
     <section id="sobre" aria-label="Sobre mim">
       <div class="sobre-header section-heading">
         <div>
@@ -196,7 +231,7 @@
               <dt>Localização</dt><dd>SP, Brasil</dd>
             </div>
             <div class="sobre-item">
-              <dt>Foco</dt><dd>Back-End &amp; sys.</dd>
+              <dt>Foco</dt><dd>Web &amp; mobile.</dd>
             </div>
             <div class="sobre-item">
               <dt>E-mail</dt><dd>joaopedroarruda323@gmail.com</dd>
@@ -214,16 +249,11 @@
           </p>
 
             <p>Olá, eu sou o <strong>João Pedro Arruda</strong>.</p>
-            <p>Tenho 18 anos e sou desenvolvedor de software Full-Stack, apaixonado por tecnologia e inovação.</p>
+            <p>Tenho 19 anos e sou desenvolvedor de software Full-Stack, apaixonado por tecnologia e inovação.</p>
             <p>Minha jornada começou na ETEC, durante minha formação em Desenvolvimento de Sistemas, onde construí minha base na programação e não parei mais.</p>
             <p>Hoje, curso ADS na Fatec Zona Leste e sigo explorando novas tecnologias e aprofundando meus conhecimentos.</p>
             <p>Atualmente, meus principais interesses estão em Engenharia de Software, arquitetura de sistemas e Back-End.</p>
-
-
-          <a href="assets/curriculo.pdf" download class="sobre-btn-cv">
-            <i class="fa-solid fa-file-arrow-down"></i>
-            Baixar currículo
-          </a>
+      
         </div>
 
       </div>
@@ -326,18 +356,7 @@
       </div>
     </section>
     <!-- /hardskills -->
-
-    <section id="projetos" class="projetos-section" aria-label="Projetos">
-      <div class="projetos-header section-heading">
-        <span class="section-eyebrow">Portfólio</span>
-        <h2>Projetos</h2>
-        <p>Alguns dos projetos que desenvolvi — seleção de trabalhos reais e acadêmicos.</p>
-      </div>
-      <ul class="project-index" id="projetosTrack"></ul>
-    </section>
-    <!-- /projetos -->
   </main>
-
   <section id="contato">
     <footer class="footer">
       <div class="footer-container">
@@ -347,9 +366,9 @@
             <h4>Navegação</h4>
             <ul class="footer-links">
               <li><a href="#home">Início</a></li>
+              <li><a href="#projetos">Projetos</a></li>
               <li><a href="#sobre">Sobre</a></li>
               <li><a href="#hardskills">Skills</a></li>
-              <li><a href="#projetos">Projetos</a></li>
             </ul>
           </nav>
 
