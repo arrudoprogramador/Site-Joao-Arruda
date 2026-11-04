@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Portfólio pessoal — João Pedro Arruda",
   "private": true,
+  "engines": {
+    "node": "26.x"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
